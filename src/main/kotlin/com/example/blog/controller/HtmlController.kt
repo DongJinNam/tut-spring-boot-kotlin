@@ -1,5 +1,10 @@
-package com.example.blog
+package com.example.blog.controller
 
+import com.example.blog.config.BlogProperties
+import com.example.blog.entity.Article
+import com.example.blog.entity.User
+import com.example.blog.repository.ArticleRepository
+import com.example.blog.utils.format
 import org.springframework.http.HttpStatus.*
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -10,7 +15,8 @@ import org.springframework.web.server.ResponseStatusException
 
 @Controller
 class HtmlController(private val repository: ArticleRepository,
-					 private val properties: BlogProperties) {
+					 private val properties: BlogProperties
+) {
 
 	@GetMapping("/")
 	fun blog(model: Model): String {
@@ -41,11 +47,11 @@ class HtmlController(private val repository: ArticleRepository,
 	)
 
 	data class RenderedArticle(
-			val slug: String,
-			val title: String,
-			val headline: String,
-			val content: String,
-			val author: User,
-			val addedAt: String)
+		val slug: String,
+		val title: String,
+		val headline: String,
+		val content: String,
+		val author: User,
+		val addedAt: String)
 
 }

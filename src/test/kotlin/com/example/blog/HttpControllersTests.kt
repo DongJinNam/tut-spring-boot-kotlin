@@ -1,5 +1,9 @@
 package com.example.blog
 
+import com.example.blog.entity.Article
+import com.example.blog.entity.User
+import com.example.blog.repository.ArticleRepository
+import com.example.blog.repository.UserRepository
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import org.junit.jupiter.api.Test
